@@ -20,7 +20,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private Button b;
-    private TextView t;
+    private TextView tv_location;
     private LocationManager locationManager;
     private LocationListener listener;
 
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        t = (TextView) findViewById(R.id.textView);
+        tv_location = (TextView) findViewById(R.id.textView);
         b = (Button) findViewById(R.id.button);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                t.append("\n " + location.getLongitude() + " " + location.getLatitude());
+                tv_location.append("\n " + location.getLongitude() + " " + location.getLatitude());
             }
 
             @Override
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return;
         }
-        // this code won't execute IF permissions are not allowed, because in the line above there is return statement.
+        // this code won'tv_location execute IF permissions are not allowed, because in the line above there is return statement.
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
